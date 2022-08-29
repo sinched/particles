@@ -38,27 +38,37 @@ body {
 	content: '';
 	position: absolute;
 	top: 0;
-	left: 0;
-	width: 100%;
+	/* left: 0; */
+	width: 50%;
 	border-bottom: 1px solid white;
 	transform: scaleX(1);
 }
 
 h1 {
 	font-size: 4rem;
-	width: 50vw;
+	width: 100vw;
 	line-height: 97%;
 	text-align: right;
 }
 
-h1,
-p {
-	flex-basis: 0;
-	flex-grow: 1;
+h1 {
+	/* flex-basis: 0; */
+	/* flex-grow: 1; */
 	clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
 }
 
-p {
-	font-size: 1.3rem;
-	width: 40vw;
+@media (min-width: 300px) {
+	h1 {
+		text-align: right;
+		opacity: 0.8;
+		width: 100%;
+	}
+
+	body {
+		overflow: hidden;
+	}
+
+	.content::before {
+		opacity: 0;
+	}
 }
