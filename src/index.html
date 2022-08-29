@@ -1,11 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThreeJS Starter</title>
-</head>
-<body>
-    <canvas class="webgl"></canvas>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ThreeJS Starter</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="content">
+				<h1>
+					Just Another <br />
+					Particle Test
+				</h1>
+				<p>Bruno Ribeiro</p>
+			</div>
+		</div>
+		<canvas class="webgl"></canvas>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"
+			integrity="sha512-GQ5/eIhs41UXpG6fGo4xQBpwSEj9RrBvMuKyE2h/2vw3a9x85T1Bt0JglOUVJJLeyIUl/S/kCdDXlE/n7zCjIg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/CSSRulePlugin.min.js"
+			integrity="sha512-LTEbTFikHcv/OwMKB2/SeC47wuF/Jxa8b75Bb8FF6QcuoDYuypI8OEIN1Z2IUMnziCtdd7EyjvLIW5Esmenucg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"></script>
+
+		<script>
+			const content = CSSRulePlugin.getRule('.content:before');
+			const h1 = document.querySelector('h1');
+			const p = document.querySelector('p');
+			const tl = gsap.timeline();
+
+			tl.from(content, { delay: 0.5, duration: 4, cssRule: { scaleX: 0 } });
+			tl.to(
+				h1,
+				{
+					duration: 2,
+					clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
+					y: '30px',
+					x: '-100px',
+				},
+				'-=3'
+			);
+			// tl.to(
+			// 	p,
+			// 	{
+			// 		duration: 4,
+			// 		clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
+			// 		y: '100px',
+			// 		x: '150px',
+			// 	},
+			// 	'-=2'
+			// );
+		</script>
+	</body>
 </html>
